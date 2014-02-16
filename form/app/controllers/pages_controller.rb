@@ -5,12 +5,11 @@ class PagesController < ApplicationController
   end
 
   def create
-    params[:stock_name]
-
-    File.open("list.txt", 'w') do |writer|
-      writer.write(params[:stock_name])
+    file = "my_file.csv"
+    File.open(file, "w") do |csv|
+      csv << params[:stock_name]
     end
-    # p params[:stock_name]
-    redirect_to "http://localhost:5631"
+
+    redirect_to "http://localhost:6777"
   end
 end
