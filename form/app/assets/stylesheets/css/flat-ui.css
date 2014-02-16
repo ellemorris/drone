@@ -2683,9 +2683,9 @@ fieldset[disabled] .navbar-inverse .navbar-btn.active {
 }
 .tagsinput {
   background: white;
-  border: 2px solid #3498DB;
+  border: 2px solid #1abc9c;
   border-radius: 6px;
-  height: 100px;
+  min-height: 300px;
   margin-bottom: 18px;
   padding: 6px 1px 1px 6px;
   overflow-y: auto;
@@ -2693,7 +2693,7 @@ fieldset[disabled] .navbar-inverse .navbar-btn.active {
 }
 .tagsinput .tag {
   border-radius: 4px;
-  background-color: #3498DB;
+  background-color: #1abc9c;
   color: #ffffff;
   font-size: 14px;
   cursor: pointer;
@@ -2709,7 +2709,7 @@ fieldset[disabled] .navbar-inverse .navbar-btn.active {
   transition: 0.25s linear;
 }
 .tagsinput .tag:hover {
-  background-color: #3498DB;
+  background-color: #16a085;
   color: #ffffff;
   padding-left: 12px;
   padding-right: 20px;
