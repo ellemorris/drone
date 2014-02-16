@@ -1,29 +1,65 @@
-# Load libraries
-#install.packages("Rtools")
-library(devtools)
-library(zoo)
-library(lubridate)
-library(Coldbir)
-library(rHighcharts)
-library(data.table)
-library(hwriter)
+shinyUI(bootstrapPage(
 
-# Global variables
-
-## Data source
-.data_source <- "C:/Users/Elle/Documents/Github/shiny-dashboard/data/"
-.db <- cdb(.data_source, type = "f")
-
-## Load data into memory
-.data <- data.table(
-  arendeid = .db["arendeid"],
-  process = .db["process"],
-  arendetyp = .db["arendetyp"],
-  startdatum = .db["startdatum"],
-  slutdatum = .db["slutdatum"]
-)
-
-## Constants
-.months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-.processes <- sort(unique(.data$process), na.last = TRUE)
-.years <- sort(unique(c(year(.data$startdatum), year(.data$slutdatum))))
+    # Add custom CSS
+    tagList(
+        tags$head(
+            tags$title("Shiny Dashboard Example"),
+            tags$link(rel="stylesheet", type="text/css",
+                      href="style.css")
+        )
+    ),
+    
+    div(class="row",
+        div(class="span2",
+            selectInput("year", label = "Year", choices = .years, selected = max(.years))
+        ),
+        div(class="span2",
+            selectInput("process", label = "Process", choices = .processes)
+        )
+    ),
+    
+    HTML("<hr>"),
+    
+    conditionalPanel(
+        condition = "input.process",
+        
+        div(class="row",
+            div(class="span6",
+                chartOutput("flow")
+            ),
+            div(class="span6",
+                chartOutput("days")
+            )
+        ),     
+        div(class="row",
+            div(class="span6",
+                chartOutput("types")
+            ),
+            div(class="span6",
+                textOutput("text"),
+                br(),
+                strong(textOutput("text2")),
+                htmlOutput("summary")
+            )
+        ),
+        #test1
+        div(class="row",
+            div(class="span6",
+                chartOutput("test")
+                )
+            ),
+        #test1
+        div(class="row",
+            div(class="span6",
+                chartOutput("test2")
+            )
+        ),
+        div(class="row",
+            div(class="span6",
+                chartOutput("test3")
+              )
+          )
+        ),      
+    HTML("<hr>")
+        
+))
