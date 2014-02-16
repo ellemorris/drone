@@ -4,7 +4,7 @@ $(function() {
   var i = 1;
 
   $( "#add-stock" ).on( "click", function() {
-    var tickerInput = $("#name").val();
+    var tickerInput = $("#name").val().split(" ")[0];
     $("#name").val("");
     $("#tagsinput_tagsinput").append("<span class='tag'><span>" + tickerInput + "&nbsp;&nbsp;</span><a class='tagsinput-remove-link'></a></span>");
     $("#stock-form").append("<input type='hidden' value='" + tickerInput + "' name='stock_name[" + i + "]'>");
