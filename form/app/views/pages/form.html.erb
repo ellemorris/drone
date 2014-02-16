@@ -1,6 +1,6 @@
-<button class="btn-thrill" id="add-stock">Add Stock</button>
-<br><br>
-
+<h1 style="margin-left: 25px;">DRONE</h1>
+<hr>
+<div class="col-xs-8">
 
 <form action="<%=pages_url%>" method="post" id="stock-form" class="form-inline">
 	<div class="form-group">
@@ -15,10 +15,20 @@
 
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
   
+  <br><br><br><br>
   <label for="name" style="margin-left: 25px;">Stock Ticker:</label>
   <input type="text" id="name" name="stock_name[0]" class="form-control form-inline" placeholder="Enter Stock Ticker" style="width: 200px;">
+  <button class="btn-thrill" type="button" id="add-stock" style="margin-left: 25px; width: 100px !important;">Add Stock</button>
   <br>
   <br>
-  <input class="btn-thrill" type="submit" value="Booooom" style="cursor: pointer;">
+  <br>
+  <input class="btn-thrill" type="submit" value="Run Analysis" style="cursor: pointer; margin-left: 25px; background-color: #E74C3C">
 </form>
+</div>
+
+<div class="col-xs-offset-2 col-xs-2" style="">
+	<p>Test</p>
+</div>
+
+
 

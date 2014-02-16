@@ -14,6 +14,6 @@ class PagesController < ApplicationController
       end
     end
     
-    redirect_to "http://localhost:5631"
+    redirect_to "http://localhost:6777"
   end
 end
