@@ -19,7 +19,7 @@ $(function() {
     $("#name").val("");
     $("#tagsinput_tagsinput").append("<span class='tag'><span>" + tickerInput + "&nbsp;&nbsp;</span><a class='tagsinput-remove-link'></a></span>");
     $("#stock-form").append("<input type='hidden' value='" + tickerInput + "' name='stock_name[" + i + "]'>");
-    
+
     $("#add-stock").attr("disabled", true);
     $("#add-stock").css("opacity", ".75");
     i += 1;
@@ -36,8 +36,8 @@ $(function() {
       }
     }
 
-    $("#add-stock").attr("disabled", true);
-    $("#add-stock").css("opacity", ".75");
+    // $("#add-stock").attr("disabled", true);
+    // $("#add-stock").css("opacity", ".75");
     return false;
   }
 
