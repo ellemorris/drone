@@ -7,9 +7,6 @@ $(function() {
   $("#final-submission").css("opacity", ".75");
   $("#final-submission").css("cursor", "not-allowed");
 
-  $("#add-stock").attr("disabled", true);
-  $("#add-stock").css("opacity", ".75");
-
   $( "#add-stock" ).on( "click", function() {
     $("#final-submission").attr("disabled", false);
     $("#final-submission").css("opacity", "1");
@@ -19,38 +16,15 @@ $(function() {
     $("#name").val("");
     $("#tagsinput_tagsinput").append("<span class='tag'><span>" + tickerInput + "&nbsp;&nbsp;</span><a class='tagsinput-remove-link'></a></span>");
     $("#stock-form").append("<input type='hidden' value='" + tickerInput + "' name='stock_name[" + i + "]'>");
-
-    $("#add-stock").attr("disabled", true);
-    $("#add-stock").css("opacity", ".75");
     i += 1;
   });
 
-  $("#name").on("keyup", validateInput);
-
-  function validateInput() {
-    for (var i = 0; i < TICKERS.length; i++) {
-      if ($("#name").val() == TICKERS[i]) {
-        $("#add-stock").attr("disabled", false);
-        $("#add-stock").css("opacity", "1");
-        return true;   
-      }
-    }
-
-    // $("#add-stock").attr("disabled", true);
-    // $("#add-stock").css("opacity", ".75");
-    return false;
-  }
 
 
   $( ".ticker-input" ).autocomplete({
     source: TICKERS
   }); 
 
-
-  $("#mine").tooltip({
-    placement: "bottom",
-    delay: {show: 100}
-  });
 
 });
   
