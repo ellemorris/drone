@@ -11,6 +11,7 @@ library(hwriter)
 # Global variables
 
 ## Data source
+
 .data_source <- "./data/"
 .db <- cdb(.data_source, type = "f")
 
