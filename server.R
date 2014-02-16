@@ -20,7 +20,21 @@ shinyServer(function(input, output) {
             process %in% input$process
             ]
     })
-
+    #############################   Reactive Data    ############################# 
+    ndata <- reactive({
+      data= list()
+      print("running")
+      a =(system('export PATH="//anaconda/bin:$PATH"; python test.py', intern = FALSE))
+      data[[1]] = read.csv("test.csv", header=F)
+      colnames(data[[1]]) = c("Date", "Value")
+      print("complete 1")
+      data[[2]] = read.csv("test2.csv", header=T)
+      colnames(data[[2]]) = c("Port", "Bench")     
+      print("complete")
+      data
+    })
+    
+    
   #############################   Chart 1    ############################# 
     # Charts
     output$flow <- renderChart({
@@ -67,54 +81,54 @@ shinyServer(function(input, output) {
         # Ladda data
         data <- data()
         
-        # BegrÃ¤nsa data till Ã¤renden som avslutads valt Ã¥r
+        # Begränsa data till ärenden som avslutads valt år
         data <- data[year(slutdatum) == input$year]
 
-        # BerÃ¤kna handlÃ¤ggningstid fÃ¶r avslutade Ã¤renden
+        # Beräkna handläggningstid för avslutade ärenden
         data[ , days := as.Date(slutdatum) - as.Date(startdatum)]
 
-        # BerÃ¤kna medel handlÃ¤ggningstid per Ã¥r och mÃ¥nad  
+        # Beräkna medel handläggningstid per år och månad  
         data <- data[, list(sum(days, na.rm = TRUE), .N), by = list(year(slutdatum), month(slutdatum))]
         data[ , mean := V1/N]
         
         data <- data[order(year, month)]  # sortera
         
-        # BerÃ¤kna aggregerade summor
+        # Beräkna aggregerade summor
         data[ , N_sum := cumsum(N)]
         data[ , V1_sum := cumsum(as.integer(V1))]
         data[ , mean_sum := V1_sum/N_sum]
 
-        # BerÃ¤kna handlÃ¤ggningstid fÃ¶r pÃ¥gÃ¥ende Ã¤renden (mer komplext!)
+        # Beräkna handläggningstid för pågående ärenden (mer komplext!)
         
-        ## BegrÃ¤nsa data till avslutade under Ã¥ret samt 
+        ## Begränsa data till avslutade under året samt 
         ongoing <- data()[is.na(slutdatum) | year(slutdatum) == input$year]
         
-        ## BerÃ¤kna hltid fÃ¶r pÃ¥gende Ã¤renden per mÃ¥nad (fÃ¶r den sista dagen i respektive mÃ¥nad)
-        ### TODO: Nedan behÃ¶ver dubbelkollas
-        ### (Denna Ã¤r vÃ¤ldigt lÃ¥ngsam!!)
+        ## Beräkna hltid för pågende ärenden per månad (för den sista dagen i respektive månad)
+        ### TODO: Nedan behöver dubbelkollas
+        ### (Denna är väldigt långsam!!)
         ongoing_months <- 1:12
         ongoing_times <- sapply(ongoing_months, function(m) {
 
-            # Ange vald mÃ¥nads sista dag
+            # Ange vald månads sista dag
             m_last_date <- as.Date(paste(input$year, m, days_in_month(m), sep = "-"))
             
-            # HÃ¤mta Ã¤renden som avslutats efter angiven mÃ¥nad, eller Ã¤r NA
+            # Hämta ärenden som avslutats efter angiven månad, eller är NA
             d <- ongoing[as.Date(startdatum) <= m_last_date & (month(slutdatum) > m | is.na(slutdatum))]
 
-            # BerÃ¤kna handlÃ¤ggningstid
+            # Beräkna handläggningstid
             d[ , days := m_last_date - as.Date(startdatum)]
             d <- d[, mean(days, na.rm = TRUE)]
             return(d)
         })
         
-        # Skapa dataset fÃ¶r respektive typ
+        # Skapa dataset för respektive typ
         ended <- data
         ongoing <- data.table(
             year = input$year,
             month = ongoing_months,
             V1 = ongoing_times)
         
-        # SlÃ¥ samman
+        # Slå samman
         times <- merge(
             ended,
             ongoing,
@@ -176,36 +190,34 @@ shinyServer(function(input, output) {
     })
     
     #scatterplot
-    output$test2 <- renderChart({
+    output$test2 <- renderChart({  
+    
+    dfr_scatter = ndata()[[2]]
+    print(dfr_scatter)
     a <- rHighcharts:::Chart$new()
     a$title(text = "title")
     a$subtitle(text = "subtitle")
     a$chart(type = "scatter")
-    a$legend(align = "right", verticalAlign = "middle", layout = "vertical")
+    #a$legend(align = "right", verticalAlign = "middle", layout = "vertical")
     a$xAxis(title = list(text= "Time"))
     a$yAxis(title = list(text= "Returns"))
     
-    a$data(x = c("Apples","Bananas","Oranges"), y = c(15, 20, 30), name = "Returns")
+    a$data(x = dfr_scatter[,2], y = dfr_scatter[,3], name = "Returns")
     return(a)
     })
     
     #line graphs and bar graphs
-    output$test3 <- renderChart({      
-      # Skapa graf
-     time=(1:365)
-     output=seq(0,36.4,.1)
-     output1=output-1
-      a <- rHighcharts:::Chart$new()
-      a$title(text = "Processing time")
-      a$subtitle(text = "Ongoing and ended cases")
-      a$xAxis(title = list(text = "Days"))
-      a$yAxis(title = list(text = "Return"))
+    output$test3 <- renderChart({
       
-      a$data(x = time, y = (output-5), type = "column", name = "Ended")
-      a$data(x = time, y = output, type = "line", name = "Ended (aggregated)")
-      a$data(x = time, y = output1, type = "line", name = "Ongoing")
+      dfr = ndata()[[1]]
       
-      return(a)
+      #dfr = .testdata
+      hpl = rHighcharts:::Chart$new()
+      #hpl$xAxis(categories = dfr$Date)
+      hpl$yAxis(title = list(text = "Value"))
+      hpl$data(x = dfr$Date, y = dfr$Value, type = "line", name = "val")
+      
+      return(hpl)
     })
 })
     

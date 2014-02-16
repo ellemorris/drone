@@ -24,6 +24,11 @@ library(hwriter)
   slutdatum = .db["slutdatum"]
 )
 
+.testdata = read.csv("test.csv", header=F)
+colnames(.testdata) = c("Date", "Value")
+.testdata$Date = as.character(.testdata$Date)
+
+
 ## Constants
 .months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 .processes <- sort(unique(.data$process), na.last = TRUE)
