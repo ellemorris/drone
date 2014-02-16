@@ -43,21 +43,28 @@ shinyUI(bootstrapPage(
                 htmlOutput("summary")
             )
         ),
-        #test1
+        
         div(class="row",
             div(class="span6",
-                chartOutput("test")
+                chartOutput("pie")
                 )
             ),
-        #test1
+
         div(class="row",
             div(class="span6",
-                chartOutput("test2")
+                chartOutput("scatter")
             )
         ),
+        
         div(class="row",
             div(class="span6",
-                chartOutput("test3")
+                chartOutput("line")
+            )
+        ),
+        
+        div(class="row",
+            div(class="span6",
+                chartOutput("bar")
               )
           )
         ),      
