@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       writer << params[:start_date] += ","
       writer << params[:end_date] += ","
       params[:stock_name].each do |key, val|
-        writer << val.split(" ")[0] += ","
+        writer << val += ","
       end
     end
     
