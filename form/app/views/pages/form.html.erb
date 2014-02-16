@@ -1,6 +1,8 @@
-<<<<<<< HEAD
-=======
-<form action="http://localhost:6777/">
-    <input class="btn-thrill" type="submit" value="Booooom" style="cursor: pointer;">
+<form action="<%=pages_url%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="stock_name">
+  <br>
+  <br>
+  <input class="btn-thrill" type="submit" value="Booooom" style="cursor: pointer;">
 </form>
->>>>>>> 014c303bd6a6c2a2f8969a395af9515e7d6cf6d2
