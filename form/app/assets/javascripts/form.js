@@ -36,8 +36,8 @@ $(function() {
       }
     }
 
-    $("#add-stock").attr("disabled", true);
-    $("#add-stock").css("opacity", ".75");
+    // $("#add-stock").attr("disabled", true);
+    // $("#add-stock").css("opacity", ".75");
     return false;
   }
 
