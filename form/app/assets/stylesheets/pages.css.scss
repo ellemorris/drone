@@ -2,6 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@font-face {
+  src: url(font_path('Gotham/Gotham-Light.otf')) format('opentype');
+  font-family: 'Gotham-Light';     
+} 
+
+@font-face {
+  src: url(font_path('SourceSansPro/EOT/SourceSansPro-Black.eot')) format('embedded-opentype');
+  font-family: 'SanBedi';
+}
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-XLight.otf')) format('opentype');
+  font-family: 'Gotham-XLight';     
+} 
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-Book.otf')) format('opentype');
+  font-family: 'Gotham-Book';     
+} 
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-Black.otf')) format('opentype');
+  font-family: 'Gotham-Black';     
+} 
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-Medium.otf')) format('opentype');
+  font-family: 'Gotham-Thin';     
+}
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-Bold.otf')) format('opentype');
+  font-family: 'Gotham-Bold';     
+}
+
+body {
+  font-family: 'Gotham-Thin' !important;
+}
+
+
 .btn-thrill {
   background: #3498DB; /*background color*/
   border-radius: 6px;
