@@ -11,7 +11,7 @@ library(hwriter)
 # Global variables
 
 ## Data source
-.data_source <- "C:/Users/Elle/Documents/Github/shiny-dashboard/data/"
+.data_source <- "~/code/pennapps2014/drone/data"
 .db <- cdb(.data_source, type = "f")
 
 ## Load data into memory

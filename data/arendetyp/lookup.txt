@@ -1,0 +1,6 @@
+key	value
+1	Application
+2	Review
+3	Re-calculation
+4	Payout
+5	Other
