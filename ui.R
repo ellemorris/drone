@@ -17,7 +17,7 @@ shinyUI(bootstrapPage(
         div(class="span2",
             selectInput("process", label = "Process", choices = .processes)
         ),
-        HTML("<button style='margin-top: 22px; margin-right: 50px; float: right;'>Add Ticker</button> tester")
+        HTML("<button style='margin-top: 22px; margin-right: 50px; float: right;'>Add Ticker</button>")
     ),
     
     HTML("<hr>"),
