@@ -15,15 +15,20 @@
 
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
   
-  <br><br><br><br>
+  <br><br><br>
   <label for="name" style="margin-left: 25px;">Stock Ticker:</label>
   <input type="text" id="name" class="form-control form-inline ticker-input" placeholder="Enter Stock Ticker" style="width: 200px;">
   <button class="btn-frill" type="button" id="add-stock" style="margin-left: 25px; width: 100px !important; background-color: #1abc9c !important;">Add Security</button>
+  <br><br>
 
   <br>
-  <br>
-  <br>
+
   <input class="btn-thrill" id="final-submission" type="submit" value="Run Analysis" style="cursor: pointer; margin-left: 25px; background-color: #E74C3C">
+<br><br>
+  <div class="col-xs-offset-12 col-xs-6">
+  <label for="script" style="margin-left: px;">Path to Python Script:</label>
+  <input type="text" id="script" class="form-control form-inline ticker-input" placeholder="Optional" style="width: 200px;">
+	</div>
 </form>
 </div>
 <h4 style="margin-top: 52px;">My Portfolio</h4>
