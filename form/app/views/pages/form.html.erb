@@ -1,8 +1,37 @@
-<form action="<%=pages_url%>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="stock_name">
-  <br>
-  <br>
-  <input class="btn-thrill" type="submit" value="Booooom" style="cursor: pointer;">
+<h1 style="margin-left: 25px;"> DRONE </h1>
+<br>
+<form role="form" action="<%=pages_url%>" method="post" class="form-inline">
+  <div class="form-group">
+    <label for="name" style="margin-left: 25px;">Stock Ticker:</label>
+    <input class="form-control form-inline" id="name" name="stock_name" placeholder="Enter Stock Ticker" style="width: 200px;">
+  </div>
+  <div class="form-group">
+    <label for="start" style="margin-left: 25px;">Start Date:</label>
+    <input type="date" class="form-control" id="start" placeholder="Enter Start Date" name="start_date" max="2014-02-15" style="width: 200px;">
+  </div>
+
+  <div class="form-group">
+    <label for="end" style="margin-left: 25px;"	>End Date:</label>
+    <input type="date" class="form-control" id="end" placeholder="Enter Start Date" name="end_date" max="2014-02-15" style="width: 200px;">
+  </div>
+	<br><br>
+	
+	<div class="extra-row">
+	  <div class="form-group">
+	    <label for="name" style="margin-left: 25px;">Stock Ticker:</label>
+	    <input class="form-control form-inline" id="name" name="stock_name" placeholder="Enter Stock Ticker" style="width: 200px;">
+	  </div>
+	  <div class="form-group">
+	    <label for="start" style="margin-left: 25px;">Start Date:</label>
+	    <input type="date" class="form-control" id="start" placeholder="Enter Start Date" name="start_date" max="2014-02-15" style="width: 200px;">
+	  </div>
+
+	  <div class="form-group">
+	    <label for="end" style="margin-left: 25px;"	>End Date:</label>
+	    <input type="date" class="form-control" id="end" placeholder="Enter Start Date" name="end_date" max="2014-02-15" style="width: 200px;">
+	  </div>
+	</div>
+
+  <br> <br>
+  <input style="margin-left: 25px;" class="btn-thrill" type="submit" value="Booooom" style="cursor: pointer;">
 </form>
