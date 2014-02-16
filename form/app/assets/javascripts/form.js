@@ -4,9 +4,17 @@ $(function() {
   var i = 1;
 
   $( "#add-stock" ).on( "click", function() {
-    $( "#stock-form" ).append( "<label for='name'>Stock Ticker:</label><input type='text' id='name' class='form-control form-inline ticker-input' style='width: 200px;' placeholder='Enter Stock Ticker' name='stock_name[" + i + "]'><br>" );
+    var tickerInput = $("#name").val();
+    $("#name").val("");
+    $("#tagsinput_tagsinput").append("<span class='tag'><span>" + tickerInput + "&nbsp;&nbsp;</span><a class='tagsinput-remove-link'></a></span>");
+    $("#stock-form").append("<input type='hidden' value='" + tickerInput + "' name='stock_name[" + i + "]'>");
     i += 1;
   });
+
+
+  // $("#final-submission").on("click", function() {
+  //   $("#name").val("");
+  // })
 
 
   $( ".ticker-input" ).autocomplete({
