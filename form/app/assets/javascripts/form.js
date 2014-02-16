@@ -3,7 +3,15 @@ $(function() {
 
   var i = 1;
 
+  $("#final-submission").attr("disabled", true);
+  $("#final-submission").css("opacity", ".75");
+  $("#final-submission").css("cursor", "not-allowed");
+
   $( "#add-stock" ).on( "click", function() {
+    $("#final-submission").attr("disabled", false);
+    $("#final-submission").css("opacity", "1");
+		$("#final-submission").css("cursor", "pointer");
+
     var tickerInput = $("#name").val().split(" ")[0];
     $("#name").val("");
     $("#tagsinput_tagsinput").append("<span class='tag'><span>" + tickerInput + "&nbsp;&nbsp;</span><a class='tagsinput-remove-link'></a></span>");
