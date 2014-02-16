@@ -8,14 +8,15 @@ class PagesController < ApplicationController
     file = "my_file.csv"
     File.open(file, "w") do |writer|
       parsed_start_date = params[:start_date].split("-").join
-      parsed_start_date += ","
       parsed_end_date =  params[:end_date].split("-").join
-      parsed_end_date += ","
 
       writer << parsed_start_date
+      writer << "\n"
       writer << parsed_end_date
+      writer << "\n"
       params[:stock_name].each do |key, val|
-        writer << val += ","
+        writer << val 
+        writer << "\n"
       end
     end
     
