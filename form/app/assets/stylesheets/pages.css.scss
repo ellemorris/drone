@@ -1,0 +1,114 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-Light.otf')) format('opentype');
+  font-family: 'Gotham-Light';     
+} 
+
+@font-face {
+  src: url(font_path('SourceSansPro/EOT/SourceSansPro-Black.eot')) format('embedded-opentype');
+  font-family: 'SanBedi';
+}
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-XLight.otf')) format('opentype');
+  font-family: 'Gotham-XLight';     
+} 
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-Book.otf')) format('opentype');
+  font-family: 'Gotham-Book';     
+} 
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-Black.otf')) format('opentype');
+  font-family: 'Gotham-Black';     
+} 
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-Medium.otf')) format('opentype');
+  font-family: 'Gotham-Thin';     
+}
+
+@font-face {
+  src: url(font_path('Gotham/Gotham-Bold.otf')) format('opentype');
+  font-family: 'Gotham-Bold';     
+}
+/*Bogus*/
+body {
+  font-family: 'Gotham-Light' !important;
+}
+
+label {
+	font-family: 'Gotham-Light' !important;
+}
+
+input {
+	font-family: inherit;
+}
+
+button {
+	font-family: inherit;
+}
+
+
+
+.btn-thrill {
+  background: #3498DB; /*background color*/
+  border-radius: 6px;
+  -moz-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px 0px rgba(0, 0, 0, 0.0470588);
+  -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px 0px rgba(0, 0, 0, 0.0470588);
+  -o-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px 0px rgba(0, 0, 0, 0.0470588);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px 0px rgba(0, 0, 0, 0.0470588);
+  padding: 10px 0px 10px 0px;
+  /*text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.247059);*/
+  line-height: 1.5;
+  font-weight: normal;
+  text-decoration: none;
+  text-align: center;
+  color: #ffffff; /*font color*/
+  font-size: 15px;
+  border: none;
+  width: 175px !important;
+  height: 37px;
+}
+
+.btn-frill {
+  background: #16a085; /*background color*/
+  border-radius: 6px;
+  -moz-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px 0px rgba(0, 0, 0, 0.0470588);
+  -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px 0px rgba(0, 0, 0, 0.0470588);
+  -o-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px 0px rgba(0, 0, 0, 0.0470588);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px 0px rgba(0, 0, 0, 0.0470588);
+  padding: 10px 0px 10px 0px;
+  /*text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.247059);*/
+  line-height: 1.5;
+  font-weight: normal;
+  text-decoration: none;
+  text-align: center;
+  color: #ffffff; /*font color*/
+  font-size: 13px;
+  border: none;
+  width: 175px !important;
+  height: 37px;
+}
+
+.btn-frill:hover {
+	background-color: #333333;
+  color: #ffffff;
+}
+
+#add-stock:hover {
+	background-color: #333333;
+  color: #ffffff;
+}
+
+.extra-row {
+	display: hidden;
+}
+
+#final-submission {
+  
+}
