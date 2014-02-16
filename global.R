@@ -11,7 +11,8 @@ library(hwriter)
 # Global variables
 
 ## Data source
-.data_source <- "~/code/pennapps2014/drone/data"
+
+.data_source <- "./data/"
 .db <- cdb(.data_source, type = "f")
 
 ## Load data into memory

@@ -12,7 +12,7 @@ shinyUI(bootstrapPage(
     
     div(class="row",
         div(class="span2",
-            selectInput("year", label = "Year", choices = .years, selected = max(.years))
+            selectInput("year", label = "ticker", choices = c('big', 'small'))
         ),
         div(class="span2",
             selectInput("process", label = "Process", choices = .processes)
