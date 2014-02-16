@@ -13,3 +13,10 @@ $(function() {
     source: TICKERS
   }); 
 });
+
+  $("#mine").tooltip({
+    placement: "bottom",
+    delay: {show: 100}
+  });
+
+  
